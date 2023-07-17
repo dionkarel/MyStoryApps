@@ -6,7 +6,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.mystoryapps.R
 import com.example.mystoryapps.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -33,12 +32,12 @@ class LoginActivity : AppCompatActivity() {
 
         val tvEmail = ObjectAnimator.ofFloat(binding.tvLoginEmail, View.ALPHA, 1f).setDuration(500)
         val edtEmail = ObjectAnimator.ofFloat(binding.edtLoginEmail, View.ALPHA, 1f).setDuration(500)
-        val tvPassord = ObjectAnimator.ofFloat(binding.tvLoginPassword, View.ALPHA, 1f).setDuration(500)
-        val edtPswd = ObjectAnimator.ofFloat(binding.edtLoginPassword, View.ALPHA, 1f).setDuration(500)
+        val tvPassword = ObjectAnimator.ofFloat(binding.tvLoginPassword, View.ALPHA, 1f).setDuration(500)
+        val edtPassword = ObjectAnimator.ofFloat(binding.edtLoginPassword, View.ALPHA, 1f).setDuration(500)
         val btLogin = ObjectAnimator.ofFloat(binding.btLogin, View.ALPHA, 1f).setDuration(500)
 
         AnimatorSet().apply {
-            playSequentially(tvEmail, edtEmail, tvPassord, edtPswd, btLogin)
+            playSequentially(tvEmail, edtEmail, tvPassword, edtPassword, btLogin)
             start()
         }
     }
