@@ -1,12 +1,9 @@
 package com.example.mystoryapps.di
 
 import android.content.Context
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import com.example.mystoryapps.UserPreference
-import com.example.mystoryapps.data.room.StoriesDb
+import com.example.mystoryapps.data.local.room.StoriesDb
 import com.example.mystoryapps.network.ApiConfig
-import com.example.mystoryapps.repository.StoriesRepository
+import com.example.mystoryapps.data.repository.StoriesRepository
 
 object Injection {
     fun provideRepository(context: Context): StoriesRepository {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginActivity">
+    tools:context=".ui.activity.LoginActivity">
 
     <TextView
         android:id="@+id/tv_appsLogin"
@@ -140,7 +140,7 @@
         app:layout_constraintStart_toStartOf="@+id/bt_login" />
 
     <TextView
-        android:id="@+id/tv_register_shortcut"
+        android:id="@+id/tv_registerShortcut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"

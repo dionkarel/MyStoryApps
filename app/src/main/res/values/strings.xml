@@ -15,11 +15,10 @@
     <string name="desc_regis2">Sudah memiliki akun ?</string>
     <string name="logout">LOGOUT</string>
     <string name="maps">MAPS</string>
-    <string name="title_activity_maps">Story on Maps</string>
     <string name="tampilkan_lokasi">Tampilkan Lokasi</string>
     <string name="masukan_email">Masukkan Email Anda!</string>
     <string name="masukan_password">Masukkan Email Anda!</string>
     <string name="masukan_deskripsi">Masukkan Deskripsi Cerita Anda!</string>
     <string name="masukan_foto">Masukkan Foto Anda!</string>
-    <string name="title_activity_maps_stories">MapsStoriesActivity</string>
+    <string name="title_activity_maps_stories">Story on Maps</string>
 </resources>

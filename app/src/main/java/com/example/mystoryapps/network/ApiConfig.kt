@@ -1,10 +1,9 @@
 package com.example.mystoryapps.network
 
 import android.content.Context
-import com.example.mystoryapps.UserPreference
+import com.example.mystoryapps.utils.UserPreference
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

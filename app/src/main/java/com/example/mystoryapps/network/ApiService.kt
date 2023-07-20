@@ -1,9 +1,12 @@
 package com.example.mystoryapps.network
 
-import com.example.mystoryapps.response.*
+import com.example.mystoryapps.data.response.AddStoryResponse
+import com.example.mystoryapps.data.response.GetStoryResponse
+import com.example.mystoryapps.data.response.LoginResponse
+import com.example.mystoryapps.data.response.RegisterResponse
+import com.example.mystoryapps.data.response.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiService {
