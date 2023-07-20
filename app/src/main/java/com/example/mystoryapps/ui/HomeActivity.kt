@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.mystoryapps.UserPreference
 import com.example.mystoryapps.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class HomeActivity : AppCompatActivity() {
         setActionForButton()
 
     }
+
 
     private fun setAnimation() {
         ObjectAnimator.ofFloat(binding.ivLogo, View.TRANSLATION_X, -30f, 30f).apply {

@@ -6,12 +6,22 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import com.example.mystoryapps.databinding.ActivityRegisterBinding
+import com.example.mystoryapps.utils.Result
+import com.example.mystoryapps.viewmodel.RegisterViewModel
+import com.example.mystoryapps.viewmodel.ViewModelFactory
 
 class RegisterActivity : AppCompatActivity() {
 
     private var _binding: ActivityRegisterBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: RegisterViewModel by viewModels {
+        ViewModelFactory(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +69,28 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun setActionForButton() {
         binding.btRegister.setOnClickListener {
-            //Register
+            binding.edtRegisterUsername.isErrorEnabled = false
+            binding.edtRegisterEmail.isErrorEnabled = false
+            val name = binding.edtRegisterUsername.editText?.text.toString()
+            val email = binding.edtRegisterEmail.editText?.text.toString()
+            val password = binding.edtRegisterPassword.editText?.text.toString()
+            when {
+                name.isEmpty() -> {
+                    Toast.makeText(this@RegisterActivity, "Masukan username anda", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                email.isEmpty() -> {
+                    Toast.makeText(this@RegisterActivity, "Masukan email anda", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                password.isEmpty() -> {
+                    Toast.makeText(this@RegisterActivity, "Masukan password anda", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                else -> {
+                    userRegister(name, email, password)
+                }
+            }
         }
 
         binding.tvLoginShortcut.setOnClickListener {
@@ -67,5 +98,37 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    private fun userRegister(name: String, email: String, password: String) {
+        viewModel.register(name, email, password).observe(this@RegisterActivity) {
+            if (it != null) {
+                when (it) {
+
+                    is Result.Loading -> {
+                        binding.progressBar.visibility = View.VISIBLE
+                    }
+                    is Result.Success -> {
+                        binding.progressBar.visibility = View.GONE
+                        AlertDialog.Builder(this@RegisterActivity).apply {
+                            setTitle("Berhasil!")
+                            setMessage("Akun berhasil terdaftar. Ayok Login!")
+                            setPositiveButton("Lanjut") { _, _ ->
+                                finish()
+                            }
+                            create()
+                            show()
+                        }
+                    }
+                    is Result.Error -> {
+                        binding.progressBar.visibility = View.GONE
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            it.error,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.example.mystoryapps
+package com.example.mystoryapps.utils
 
 import android.content.Context
 import android.text.Editable

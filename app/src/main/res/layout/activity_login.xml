@@ -106,7 +106,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_login_password"
         app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
-        <com.example.mystoryapps.CustomEditTextPassord
+        <com.example.mystoryapps.utils.CustomEditTextPassord
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
