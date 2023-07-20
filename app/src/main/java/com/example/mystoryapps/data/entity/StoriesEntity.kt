@@ -14,27 +14,27 @@ data class StoriesEntity (
 
     @field:ColumnInfo(name = "name")
     @field:SerializedName("name")
-    val name: String,
+    val name: String? = null,
 
     @field:ColumnInfo(name = "description")
     @field:SerializedName("description")
-    val description: String,
+    val description: String? = null,
 
     @field:ColumnInfo(name = "photoUrl")
     @field:SerializedName("photoUrl")
-    val photoUrl: String,
+    val photoUrl: String? = null,
 
     @field:ColumnInfo(name = "createdAt")
     @field:SerializedName("createdAt")
-    val createdAt: String,
+    val createdAt: String? = null,
 
     @field:ColumnInfo(name = "lat")
     @field:SerializedName("lat")
-    val lat: Double?,
+    val lat: Double? = null,
 
     @field:ColumnInfo(name = "lon")
     @field:SerializedName("lon")
-    val lon: Double?
+    val lon: Double? = null
 )
 
 @Entity(tableName = "remote_keys")

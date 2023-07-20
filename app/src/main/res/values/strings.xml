@@ -21,4 +21,5 @@
     <string name="masukan_password">Masukkan Email Anda!</string>
     <string name="masukan_deskripsi">Masukkan Deskripsi Cerita Anda!</string>
     <string name="masukan_foto">Masukkan Foto Anda!</string>
+    <string name="title_activity_maps_stories">MapsStoriesActivity</string>
 </resources>

@@ -6,6 +6,7 @@ import android.view.MenuItem
 import androidx.core.os.bundleOf
 import com.bumptech.glide.Glide
 import com.example.mystoryapps.databinding.ActivityDetailBinding
+import com.example.mystoryapps.utils.Utils
 
 
 class DetailActivity : AppCompatActivity() {
@@ -48,7 +49,7 @@ class DetailActivity : AppCompatActivity() {
         binding.apply {
             tvDetailUsername.text = name
             tvDetailDesc.text = desc
-            tvDetailDatePost.text = date
+            tvDetailDatePost.text = Utils.dateFormat(date)
         }
     }
 

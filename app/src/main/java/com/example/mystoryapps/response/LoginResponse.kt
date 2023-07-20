@@ -15,11 +15,11 @@ data class LoginResponse (
 
 data class LoginResultResponse(
     @field:SerializedName("userId")
-    val userId: String,
+    val userId: String? = null,
 
     @field:SerializedName("name")
-    val name: String,
+    val name: String? = null,
 
     @field:SerializedName("token")
-    val token: String
+    val token: String? = null
 )

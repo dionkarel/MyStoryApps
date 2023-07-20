@@ -32,7 +32,7 @@ class StoriesRepository (private val storiesDb: StoriesDb, private val apiServic
             val response = apiService.userRegister(name, email, password)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.e("SignUpViewModel", "postSignUp: ${e.message.toString()}")
+            Log.e("RegisterViewModel", "userRegister: ${e.message.toString()}")
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -43,7 +43,7 @@ class StoriesRepository (private val storiesDb: StoriesDb, private val apiServic
             val response = apiService.userLogin(email, password)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.e("LoginViewModel", "postLogin: ${e.message.toString()}")
+            Log.e("LoginViewModel", "userLogin: ${e.message.toString()}")
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -68,7 +68,7 @@ class StoriesRepository (private val storiesDb: StoriesDb, private val apiServic
             val response = apiService.addStory(file, description, latLng?.latitude, latLng?.longitude)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.e("AddStoryViewModel", "postStory: ${e.message.toString()}")
+            Log.e("AddStoryViewModel", "userUpload: ${e.message.toString()}")
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -76,10 +76,10 @@ class StoriesRepository (private val storiesDb: StoriesDb, private val apiServic
     fun getStoryWithLocation(): LiveData<Result<GetStoryResponse>> = liveData {
         emit(Result.Loading)
         try {
-            val response = apiService.getStoryWithLocation(2)
+            val response = apiService.getStoryWithLocation(100)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("ListStoryViewModel", "getStoriesWithLocation: ${e.message.toString()} ")
+            Log.d("MapsStoriesViewModel", "getStoriesWithLocation: ${e.message.toString()} ")
             emit(Result.Error(e.message.toString()))
         }
     }

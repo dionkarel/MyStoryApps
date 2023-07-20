@@ -9,7 +9,7 @@ import com.example.mystoryapps.data.entity.StoriesEntity
 
 @Database(
     entities = [StoriesEntity::class, RemoteKeys::class],
-    version = 3,
+    version = 4,
     exportSchema = false
 )
 abstract class StoriesDb : RoomDatabase() {

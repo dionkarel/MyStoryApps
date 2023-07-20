@@ -52,7 +52,9 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
             R.id.action_maps -> {
-
+                val intent = Intent(this, MapsStoriesActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
         return super.onOptionsItemSelected(item)

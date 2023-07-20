@@ -119,8 +119,6 @@ class LoginActivity : AppCompatActivity() {
                     data.loginResult.token
                 )
                 userPreference.saveUser(userModel)
-                startActivity(Intent(this, MainActivity::class.java))
-                this@LoginActivity.finish()
             }
         }
     }

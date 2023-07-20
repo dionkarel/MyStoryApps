@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.example.mystoryapps.R
 import com.example.mystoryapps.databinding.ActivityAddStoryBinding
+import com.example.mystoryapps.utils.Result
 import com.example.mystoryapps.utils.Utils.createCustomTempFile
 import com.example.mystoryapps.utils.Utils.reduceFileImage
 import com.example.mystoryapps.utils.Utils.rotateBitmap
@@ -154,17 +155,17 @@ class AddStoryActivity : AppCompatActivity() {
                 addStoryViewModel.addNewStory(imageMultipart, description, latLng).observe(this) {
                     if (it != null) {
                         when (it) {
-                            is com.example.mystoryapps.utils.Result.Success -> {
+                            is Result.Success -> {
                                 binding.progressBar.visibility = View.VISIBLE
                                 Toast.makeText(this@AddStoryActivity, it.data.message, Toast.LENGTH_LONG).show()
                                 val intent = Intent(this@AddStoryActivity, MainActivity::class.java)
                                 startActivity(intent)
                                 finish()
                             }
-                            is com.example.mystoryapps.utils.Result.Loading -> {
+                            is Result.Loading -> {
                                 binding.progressBar.visibility = View.GONE
                             }
-                            is com.example.mystoryapps.utils.Result.Error -> {
+                            is Result.Error -> {
                                 binding.progressBar.visibility = View.GONE
                                 Toast.makeText(this@AddStoryActivity, it.error, Toast.LENGTH_LONG).show()
                             }
@@ -181,11 +182,9 @@ class AddStoryActivity : AppCompatActivity() {
 
     private fun getLocation() {
         if (checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) && checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION)) {
-            fusedLocationProviderClient.lastLocation.addOnSuccessListener {
-                if (it != null) {
-                    userLocation = it
-                } else {
-                    binding.switchLocation.isChecked = false
+            fusedLocationProviderClient.lastLocation.addOnSuccessListener { location ->
+                if (location != null) {
+                    latLng = LatLng(location.latitude, location.longitude)
                 }
             }
         } else {

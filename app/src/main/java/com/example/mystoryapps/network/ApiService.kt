@@ -39,7 +39,7 @@ interface ApiService {
     ) : AddStoryResponse
 
     @GET("stories?location=1")
-    fun getStoryWithLocation(
+    suspend fun getStoryWithLocation(
         @Query("size") size: Int? = null,
         @Query("location") location: Boolean? = null
     ): GetStoryResponse
